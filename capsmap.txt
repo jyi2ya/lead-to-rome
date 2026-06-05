@@ -1,0 +1,72 @@
+# aggligator
+aggligator::transport::ConnectorBuilder::new=        # pure
+aggligator::transport::AcceptorBuilder::new=         # pure
+aggligator::transport::Connector::add=               # pure
+aggligator::transport::Connector::channel=           # pure
+aggligator::transport::Connector::control=           # pure
+aggligator::transport::Acceptor::add=                # pure
+aggligator::transport::Acceptor::accept=BI           # blocking + I/O
+aggligator::alc::Channel::into_stream=               # pure
+aggligator::io::IoBox::new=                          # pure
+aggligator::control::Control::terminate=             # pure
+aggligator_transport_tcp::TcpAcceptor::new=BI        # blocking + I/O
+
+# fast-socks5
+fast_socks5::socks4::client::Socks4Stream::connect=BI
+fast_socks5::client::Socks5Stream::connect=BI
+fast_socks5::client::Socks5Stream::connect_with_password=BI
+fast_socks5::client::Config::default=                # pure
+
+# tokio
+tokio::net::TcpListener::bind=BI                     # blocking + I/O
+tokio::net::TcpListener::accept=BI                   # blocking + I/O
+tokio::net::TcpStream::connect=BI                    # blocking + I/O
+tokio::io::copy_bidirectional=BI                     # blocking + I/O
+tokio::io::split=                                    # pure
+tokio::io::AsyncReadExt::read=BI                     # blocking + I/O
+tokio::io::AsyncWriteExt::write_all=BI               # blocking + I/O
+tokio::process::Command::new=                        # pure
+tokio::process::Command::from=                       # pure
+tokio::process::Command::arg=                        # pure
+tokio::process::Command::args=                       # pure
+tokio::process::Command::spawn=BI                    # blocking + I/O
+tokio::process::Child::stdin=                        # pure (take)
+tokio::process::Child::stdout=                       # pure (take)
+tokio::process::Child::stderr=                       # pure (take)
+tokio::process::ChildStdin::take=                    # pure
+tokio::process::ChildStdout::take=                   # pure
+tokio::process::Child::start_kill=S                  # side effect
+tokio::process::Child::wait=BI                       # blocking + I/O
+tokio::time::sleep=BI                                # blocking + I/O (timer)
+tokio::sync::Semaphore::new=                         # pure
+tokio::sync::Semaphore::try_acquire_owned=           # pure
+tokio::sync::watch::Sender::closed=BI                # blocking
+tokio::sync::watch::Sender::send_if_modified=        # pure
+tokio::task::JoinSet::new=                           # pure
+tokio::task::JoinSet::spawn=S                        # side effect
+tokio::task::JoinSet::join_next=BI                   # blocking
+tokio::select=BI                                     # blocking
+tokio::spawn=S                                       # side effect
+tokio::signal::ctrl_c=BI                             # blocking + I/O
+
+# std
+std::io::Error::new=                                 # pure
+std::io::Error::other=                               # pure
+std::io::ErrorKind::ConnectionRefused=               # enum variant
+std::io::ErrorKind::UnexpectedEof=                   # enum variant
+std::io::ErrorKind::ConnectionReset=                 # enum variant
+std::io::ErrorKind::BrokenPipe=                      # enum variant
+std::process::Stdio::piped=                          # pure
+std::process::Stdio::null=                           # pure
+std::process::Command::new=                          # pure
+std::process::Command::arg=                          # pure
+std::process::Command::args=                         # pure
+std::iter::once=                                     # pure
+std::sync::Arc::new=                                 # pure
+std::sync::Arc::clone=                               # pure
+clap::Parser::try_parse=S                            # side effect: reads args
+tracing::info=S                                      # side effect: logging
+tracing::error=S                                     # side effect: logging
+tracing::warn=S                                      # side effect: logging
+tracing::debug=S                                     # side effect: logging
+tracing_subscriber::fmt::init=S                      # side effect

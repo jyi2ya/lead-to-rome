@@ -1,0 +1,1 @@
+failed to parse proxy 'http://user:pass@127.0.0.1:8080': HTTP proxy authentication is not supported; use format http://ip:port

@@ -1,0 +1,2 @@
+no-auth => has_auth=false
+with-auth => user=user pass=pass

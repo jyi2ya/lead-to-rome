@@ -1,0 +1,4 @@
+200 OK => Some(200)
+407 => Some(407)
+garbage => None
+empty => None

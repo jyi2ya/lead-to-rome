@@ -1,0 +1,3 @@
+simple => Some(19)
+with-header => Some(38)
+incomplete => None

@@ -1,0 +1,1 @@
+failed to parse proxy 'bad://proxy': unknown scheme 'bad', expected one of: socks4, socks5, http, ssh
